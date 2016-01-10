@@ -1,0 +1,338 @@
+newmtl m0
+map_Kd tex_kotori\ribbon.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m1
+map_Kd tex_niko\bodymikub.png
+Ka 0.6 0.6 0.6
+Kd 0.67 0.67 0.67
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m2
+map_Kd tex_lovelive\mikublazer_m.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m3
+map_Kd tex_eri\scruschie.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m4
+map_Kd tex_eri\mikublazer.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m5
+map_Kd tex_eri\mikuskinbj.tga
+Ka 0.6 0.6 0.6
+Kd 0.67 0.67 0.67
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m6
+map_Kd tex_eri\panty2.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m7
+map_Kd tex_eri\mikuhsox.bmp
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m8
+map_Kd tex_eri\skirt.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m9
+map_Kd tex_eri\skirt2.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m10
+map_Kd tex_marisa\tex_black.png
+Ka 0.6 0.6 0.6
+Kd 0 0 0
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m11
+map_Kd tex_marisa\kao.png
+Ka 0.6 0.6 0.6
+Kd 0.67 0.67 0.67
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m12
+map_Kd tex_marisa\tex_black.png
+Ka 0.6 0.6 0.6
+Kd 0 0 0
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m13
+map_Kd tex_eri\eyebase.png
+Ka 0.6 0.6 0.6
+Kd 1 1 1
+Ks 0.1 0.1 0.1
+Ns 5
+d 1
+
+newmtl m14
+map_Kd tex_marisa\kao.png
+Ka 0.6 0.6 0.6
+Kd 0.67 0.67 0.67
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m15
+map_Kd tex_marisa\kao.png
+Ka 0.6 0.6 0.6
+Kd 0.67 0.67 0.67
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m16
+map_Kd tex_marisa\kao.png
+Ka 0.6 0.6 0.6
+Kd 0.408 0.408 0.408
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m17
+map_Kd tex_marisa\matsuge.png
+Ka 0.2 0.2 0.2
+Kd 0 0 0
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m18
+map_Kd tex_kotori\kami.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m19
+map_Kd tex_marisa\tex_black.png
+Ka 0.6 0.6 0.6
+Kd 0 0 0
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m20
+map_Kd tex_kotori\kami.png
+Ka 0.6 0.6 0.6
+Kd 0 0 0
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m21
+map_Kd tex_kotori\eye.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m22
+map_Kd tex_kotori\kami2.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m23
+map_Kd tex_kotori\ribbon2.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m24
+map_Kd tex_umi\kurome.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m25
+map_Kd tex_kotori\hl3.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m26
+map_Kd tex_miku\bodymikub.png
+Ka 0.6 0.6 0.6
+Kd 0.67 0.67 0.67
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m27
+map_Kd tex_kotori\highlight3.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m28
+map_Kd tex_kotori\highlight.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m29
+map_Kd tex_niko\hl2.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m30
+map_Kd tex_niko\hl1.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m31
+map_Kd tex_niko\mabuta.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m32
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m33
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m34
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m35
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m36
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m37
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m38
+map_Kd tex_niko\tere.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m39
+map_Kd tex_niko\tere.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+
+newmtl m40
+map_Kd tex_marisa\kao.png
+Ka 0.6 0.6 0.6
+Kd 0.67 0.67 0.67
+Ks 0.03 0.03 0.03
+Ns 46
+d 1
+
+newmtl m41
+map_Kd tex_eri\mikukutsu2.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
+newmtl m42
+map_Kd tex_hanayo\kutsuura.png
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+
