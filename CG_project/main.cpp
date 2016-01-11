@@ -1,7 +1,33 @@
 //project
 #include "main1.h"
 #include <iostream>
-
+#include <fstream>
+#include <string>
+#include <stdlib.h>
+GLMmodel *stage2M;
+void readMTL(char * fileName) {
+    ifstream fin(fileName);
+    
+    string s;
+    while (getline(fin,s)){
+        string stemp=s.substr(0,6);
+        /*if (stemp=="newmtl"){
+         string sNum=s.substr()
+         textureNum==
+         }*/
+        
+        if (stemp=="map_Kd"){
+            string st=s.substr(7);
+            st[st.length() - 1] = '\0';
+            strcpy(texFileName[textureObjectCnt],st.c_str());
+            
+            cout<< texFileName[textureObjectCnt] <<endl;
+            textureObjectCnt++;
+            
+        }
+    }
+    
+}
 bool snapScreen(int width, int height, const char *file) {
 	byte *image;
 	FILE *fp;
@@ -72,7 +98,7 @@ unsigned char *loadBitmapFile(char *filename, BITMAPINFOHEADER *bitmapInfoHeader
 
 	fread(bitmapInfoHeader, sizeof(BITMAPINFOHEADER), 1, filePtr);
 	fseek(filePtr, bitmapFileHeader.bfOffBits, SEEK_SET);
-	bitmapImage = new unsigned char[bitmapInfoHeader->biSizeImage];
+	bitmapImage = new unsigned char[bitmapInfoHeader->biSizeImage + 2];
 	if (!bitmapImage) {
 		fprintf(stderr, "Error in loadBitmapFile: memory error\n");
 		return NULL;
@@ -106,17 +132,17 @@ void loadTexture(int i, char* filename, bool type) {
 }
 
 void initTextureVideo() {
-	glGenTextures(100, textureVideo);
-
-	char videoLoc[14] = "video/000.bmp";
-    for (int i = 0; i < 110; i++) {
-        videoLoc[6] = i / 100 + '0';
-		videoLoc[7] = i % 100 / 10 + '0';
-		videoLoc[8] = i % 100 % 10 + '0';
-        cout << videoLoc << endl;
-		loadTexture(i, videoLoc, true);
-	}
-    loadTexture(101, "data.bmp", true); //防止泄漏
+//	glGenTextures(40, textureVideo);
+//
+//	char videoLoc[14] = "video/000.bmp";
+//    for (int i = 0; i < 39; i++) {
+//        videoLoc[7] = i / 10 + '0';
+//		videoLoc[8] = i % 10 + '0';
+////		videoLoc[8] = i % 100 % 10 + '0';
+//        cout << videoLoc << endl;
+//		loadTexture(i, videoLoc, true);
+//	}
+//    loadTexture(39, "data.bmp", true);
 }
 
 void renderVideoFrame(GLfloat x) {
@@ -133,7 +159,7 @@ void renderVideoFrame(GLfloat x) {
     
 	glEnd();
     
-    glBindTexture(GL_TEXTURE_2D, textureVideo[99]);
+    glBindTexture(GL_TEXTURE_2D, textureVideo[39]);
     //glColor3f(0, 0, 0);
     glBegin(GL_QUADS);
     
@@ -492,15 +518,18 @@ void key(unsigned char k, int x, int y) {
 				  }
 				  if (operation == 3)
 				  {
+//                    cout << center[2] + eyeDeltaZ << '\t' << center[2] << endl;
+                      if (center[0] + eyeDeltaX >= -29 && center[0] + eyeDeltaX <= 12 && center[2] + eyeDeltaZ >= -24 && center[2] + eyeDeltaZ <= 19) {
 				//	printf("e0=%f,e2=%f\n", eye[0], eye[2]);
-				  dir[0] = eye[0] - center[0];
-				  dir[2] = eye[2] - center[2];
+                          dir[0] = eye[0] - center[0];
+                          dir[2] = eye[2] - center[2];
 				//  printf("d0=%f,d2=%f\n", dir[0], dir[2]);
-				  eye[0] += eyeDeltaX;
-				  eye[2] += eyeDeltaZ;
+                          eye[0] += eyeDeltaX;
+                          eye[2] += eyeDeltaZ;
 				//  printf("e0=%f,e2=%f\n", eye[0], eye[2]);
-				  center[0] = eye[0] - dir[0];
-				  center[2] = eye[2] - dir[2];
+                          center[0] = eye[0] - dir[0];
+                          center[2] = eye[2] - dir[2];
+                      }
 				  }
 				  
 				  break;
@@ -534,15 +563,17 @@ void key(unsigned char k, int x, int y) {
 				  }
 				  if (operation == 3)
 				  {
-//printf("e0=%f,e2=%f\n", eye[0], eye[2]);
-				  dir[0] = eye[0] - center[0];
-				  dir[2] = eye[2] - center[2];
+//                      cout << center[2] - eyeDeltaZ << '\t' << center[2] << endl;
+                      if (center[0] - eyeDeltaX >= -29 && center[0] - eyeDeltaX <= 12 && center[2] - eyeDeltaZ >= -24 && center[2] - eyeDeltaZ <= 19) {
+                            dir[0] = eye[0] - center[0];
+                            dir[2] = eye[2] - center[2];
 //				  printf("d0=%f,d2=%f\n", dir[0], dir[2]);
-				  eye[0] -= eyeDeltaX;
-				  eye[2] -= eyeDeltaZ;
+                            eye[0] -= eyeDeltaX;
+                            eye[2] -= eyeDeltaZ;
 //				  printf("e0=%f,e2=%f\n", eye[0], eye[2]);
-				  center[0] = eye[0] - dir[0];
-				  center[2] = eye[2] - dir[2];
+                            center[0] = eye[0] - dir[0];
+                            center[2] = eye[2] - dir[2];
+                      }
 				  }
 				  
 				  break;
@@ -986,7 +1017,7 @@ void initGlobalScene() {
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
-	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+`	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, lightColor);
 	glEnable(GL_LIGHT0);
 	*/
@@ -1027,20 +1058,21 @@ GLuint qh_drawOBJ(char * filename){
     GLMmodel *glm_model;
     GLuint list;
     glm_model = glmReadOBJ(filename);
+    stage2M=glm_model;
     glmUnitize(glm_model);
-    glmScale(glm_model, 5);
+    glmScale(glm_model, 20);
     glmFacetNormals(glm_model);
     glmVertexNormals(glm_model, 90);
     list = glmList(glm_model, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
-    glmDelete(glm_model);
+    //glmDelete(glm_model);
     return list;
 }
 
 void loadOBJ(){
-    lamp = qh_drawOBJ("model/plant.obj");
-    settee = qh_drawOBJ("model/WoodTable.obj");
-    stage = qh_drawOBJ("model/sbk_stage.obj");
-    kotori = qh_drawOBJ("model/Minami_Kotori.obj");
+//    lamp = qh_drawOBJ("model/plant.obj");
+//    settee = qh_drawOBJ("model/WoodTable.obj");
+    stage = qh_drawOBJ("model/stage_big.obj");
+//    kotori = qh_drawOBJ("model/Minami_Kotori.obj");
     
 }
 
@@ -1095,162 +1127,28 @@ void display() {
 	renderVideo();
 	renderMandelbrotVideo();
 
-//	initSurfaceNURBS();
-	//drawFrameOfNURBS();
-//	drawSurfaceNURBS(true);
-	glPopMatrix();
-	//floor
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[0]);
-	glPushMatrix();
-	glTranslatef(0, -1, 0);
-	glScalef(15, 8, 8);
-//	glCallList(list + 0); //地板
-	glPopMatrix();
-    glBindTexture(GL_TEXTURE_2D, textureObjects[2]);
-    glPushMatrix();
-    glTranslatef(15, 4, 0);
-    glScalef(0.2, 5, 8);
-//    glCallList(list + 2);
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(-10, 4, -8);
-    glScalef(5, 5, 0.2);
-//    glCallList(list + 2); //墙
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(-5, 4, -8);
-    glScalef(5, 5, 0.2);
-//    glCallList(list + 2);
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(5, 4, -8);
-    glScalef(5, 5, 0.2);
-//    glCallList(list + 2);
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(10, 4, -8);
-    glScalef(5, 5, 0.2);
-//    glCallList(list + 2);
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(-14.5, 4, 0);
-    glScalef(0.2, 5, 8);
-//    glCallList(list + 2);
-    glPopMatrix();
-    
-	glDisable(GL_TEXTURE_2D);
-	glTranslatef(-8, 0, 0);
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[1]);
-	glPushMatrix();
-	glTranslatef(4, 0, 2);
-//	glCallList(list + 1);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
 
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[2]);
-	glPushMatrix();
-	glTranslatef(2, 0, 4);
-//	glCallList(list + 2);
 	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[3]);
-	glPushMatrix();
-	glTranslatef(-2, 0, 4);
-//	glCallList(list + 3);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[4]);
-	glPushMatrix();
-	glTranslatef(-4, 0, 2);
-//	glCallList(list + 4);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[5]);
-	glPushMatrix();
-	glTranslatef(-4, 0, -2);
-	glRotatef(fRotate, 0, 1, 0);
-//	glCallList(list + 5);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[6]);
-	glPushMatrix();
-	glTranslatef(-2, 0, -4);
-	glRotatef(fRotate, 0, 1, 0);
-//	glCallList(list + 6);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[7]);
-	glPushMatrix();
-	glTranslatef(2, 0, -4);
-	glRotatef(fRotate, 0, 1, 0);
-//	glCallList(list + 7);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureObjects[8]);
-	glPushMatrix();
-	glTranslatef(4, 0, -2);
-	glRotatef(fRotate, 0, 1, 0);
-//	glCallList(list + 8);
-	//glutSolidTeapot(1);
-	//glutSolidSphere(1, 100, 100);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-  
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, textureObjects[7]);
-    glPushMatrix();
-   // glColor3f(0.5, 0.5,0.5);
-    glScalef(0.5, 0.5, 0.5);
-    glTranslatef(12, 6, -4);
-   // glRotatef(fRotate, 0, 1, 0);
-//    glCallList(lamp);
-    glPopMatrix();
-    glDisable(GL_TEXTURE_2D);
-    
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, textureObjects[4]);
-    glPushMatrix();
-    // glColor3f(0.5, 0.5,0.5);
-    glScalef(0.3, 0.3, 0.3);
-    glTranslatef(23, 0, 0);
-    // glRotatef(fRotate, 0, 1, 0);
-//    glCallList(settee);
-    glPopMatrix();
-    glDisable(GL_TEXTURE_2D);
-    
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, textureObjects[8]);
-    glPushMatrix();
+    glScaled(-1, 1, 1);
     glTranslatef(0, 10, 0);
-    glScalef(5, 5, 5);
-    glCallList(stage);
-    glPopMatrix();
-     glDisable(GL_TEXTURE_2D);
-    
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, textureObjects[10]);
-    glPushMatrix();
-    glScalef(0.3, 0.3, 0.3);
-    glCallList(kotori);
-    glPopMatrix();
+    //textureObjectCnt=6;
+    for (int ii = 0; ii < textureObjectCnt; ii++) {
+        glBindTexture(GL_TEXTURE_2D, textureObjects[textureObjectCnt-1-ii]);
+        GLMmodel *stage2=stage2M;
+        //GLMgroup *group=stage2->groups;
+        //glPushMatrix();
+        //group->
+        //glmDraw(stage2->groups,GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+//        stage2->groups=stage2->groups->next;
+        //cout<<texFileName[ii]<<endl;
+        glmDrawGroup(stage2, ii,GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+        
+        //system("pause");
+        //glPopMatrix();
+    }
     glDisable(GL_TEXTURE_2D);
-    
-//	cc_Draw_Element();
+
 		fRotate += 5;
 	if (fRotate == 365) fRotate = 0;
 
@@ -1260,19 +1158,23 @@ void display() {
 
 void getVideoFrame(int value){
 	displayFPS++;
-	displayFPS = displayFPS % 110;
+	displayFPS = displayFPS % 40;
 	display();
 	// Present frame every 136 ms
 	glutTimerFunc(136, getVideoFrame, 0);
 }
 
 int main(int argc, char *argv[]) {
+//    cout << "ok";
+    
+    stage2M=(GLMmodel*)malloc(sizeof(GLMmodel));
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(screenWidth, screenHeight);
 	glutCreateWindow("Graphics Course Project");
-	loadObjectTextures();
+    readMTL("model/stage_big.mtl");
+    loadObjectTextures();
 	initGlobalScene();
 
 	glutReshapeFunc(reshape);

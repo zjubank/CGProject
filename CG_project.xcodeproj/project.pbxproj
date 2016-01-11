@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70E7461C1C413F80000F9518 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70E7461A1C413F80000F9518 /* glm.cpp */; };
+		70E746521C42B481000F9518 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70E746501C42B481000F9518 /* glm.cpp */; };
 		AB50C4631B37EB0D008ABE12 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB50C4621B37EB0D008ABE12 /* GLUT.framework */; };
 		AB50C4651B37EB14008ABE12 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB50C4641B37EB14008ABE12 /* OpenGL.framework */; };
 		AC3FC4EB1B37E8AD00C62161 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC3FC4EA1B37E8AD00C62161 /* main.cpp */; };
@@ -26,8 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		70E7461A1C413F80000F9518 /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = glm.cpp; path = "../../glm 3/glm.cpp"; sourceTree = "<group>"; };
-		70E7461B1C413F80000F9518 /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glm.h; path = "../../glm 3/glm.h"; sourceTree = "<group>"; };
+		70E746501C42B481000F9518 /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glm.cpp; sourceTree = "<group>"; };
+		70E746511C42B481000F9518 /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
 		AB4A1C811B381CD400BE4872 /* main1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main1.h; sourceTree = "<group>"; };
 		AB50C4621B37EB0D008ABE12 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		AB50C4641B37EB14008ABE12 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -69,9 +69,9 @@
 		AC3FC4E91B37E8AD00C62161 /* CG_project */ = {
 			isa = PBXGroup;
 			children = (
-				70E7461A1C413F80000F9518 /* glm.cpp */,
-				70E7461B1C413F80000F9518 /* glm.h */,
 				AC3FC4EA1B37E8AD00C62161 /* main.cpp */,
+				70E746501C42B481000F9518 /* glm.cpp */,
+				70E746511C42B481000F9518 /* glm.h */,
 				AB4A1C811B381CD400BE4872 /* main1.h */,
 			);
 			path = CG_project;
@@ -133,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70E7461C1C413F80000F9518 /* glm.cpp in Sources */,
+				70E746521C42B481000F9518 /* glm.cpp in Sources */,
 				AC3FC4EB1B37E8AD00C62161 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

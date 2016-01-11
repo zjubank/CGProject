@@ -1,2 +1,3 @@
-dependencies: /Users/ZJUBank/Downloads/glm\ 3/glm.cpp \
-  /Users/ZJUBank/Downloads/glm\ 3/glm.h
+dependencies: \
+  /Users/ZJUBank/Desktop/NewProj/CGPproject\ 2/CG_project/glm.cpp \
+  /Users/ZJUBank/Desktop/NewProj/CGPproject\ 2/CG_project/glm.h

@@ -1,5 +1,5 @@
 newmtl m0
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -7,7 +7,7 @@ Ns 5
 d 1
 
 newmtl m1
-map_Kd tex_soreboku\l.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/l.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -15,7 +15,7 @@ Ns 5
 d 1
 
 newmtl m2
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -23,7 +23,7 @@ Ns 5
 d 1
 
 newmtl m3
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -31,7 +31,7 @@ Ns 5
 d 1
 
 newmtl m4
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -39,7 +39,7 @@ Ns 5
 d 1
 
 newmtl m5
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -47,7 +47,7 @@ Ns 5
 d 1
 
 newmtl m6
-map_Kd tex_soreboku\main3.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main3.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -55,7 +55,7 @@ Ns 5
 d 1
 
 newmtl m7
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -63,7 +63,7 @@ Ns 5
 d 1
 
 newmtl m8
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -71,7 +71,7 @@ Ns 5
 d 1
 
 newmtl m9
-map_Kd tex_soreboku\q.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/q.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -79,7 +79,7 @@ Ns 5
 d 1
 
 newmtl m10
-map_Kd tex_soreboku\r.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/r.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -87,7 +87,7 @@ Ns 5
 d 1
 
 newmtl m11
-map_Kd tex_soreboku\s.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/s.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -95,7 +95,7 @@ Ns 5
 d 1
 
 newmtl m12
-map_Kd tex_soreboku\t.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/t.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -103,7 +103,7 @@ Ns 5
 d 1
 
 newmtl m13
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -111,7 +111,7 @@ Ns 5
 d 1
 
 newmtl m14
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -119,7 +119,7 @@ Ns 5
 d 1
 
 newmtl m15
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -127,7 +127,7 @@ Ns 5
 d 1
 
 newmtl m16
-map_Kd tex_soreboku\main3.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main3.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -135,7 +135,7 @@ Ns 5
 d 1
 
 newmtl m17
-map_Kd tex_soreboku\main3.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main3.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -143,7 +143,7 @@ Ns 5
 d 1
 
 newmtl m18
-map_Kd tex_soreboku\main3.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main3.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -151,7 +151,7 @@ Ns 5
 d 1
 
 newmtl m19
-map_Kd tex_soreboku\main3.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main3.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -159,7 +159,7 @@ Ns 5
 d 1
 
 newmtl m20
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -167,7 +167,7 @@ Ns 5
 d 1
 
 newmtl m21
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -175,7 +175,7 @@ Ns 5
 d 1
 
 newmtl m22
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -183,7 +183,7 @@ Ns 5
 d 1
 
 newmtl m23
-map_Kd tex_soreboku\main.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -191,7 +191,7 @@ Ns 5
 d 1
 
 newmtl m24
-map_Kd tex_soreboku\main3.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/main3.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -199,7 +199,7 @@ Ns 5
 d 1
 
 newmtl m25
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -207,7 +207,7 @@ Ns 5
 d 1
 
 newmtl m26
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -215,7 +215,7 @@ Ns 5
 d 1
 
 newmtl m27
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -223,7 +223,7 @@ Ns 5
 d 1
 
 newmtl m28
-map_Kd tex_soreboku\mob.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/mob.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -231,7 +231,7 @@ Ns 5
 d 0
 
 newmtl m29
-map_Kd tex_soreboku\mob.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/mob.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -239,7 +239,7 @@ Ns 5
 d 0
 
 newmtl m30
-map_Kd tex_soreboku\mob.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/mob.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -247,7 +247,7 @@ Ns 5
 d 0
 
 newmtl m31
-map_Kd tex_soreboku\mob.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/mob.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
@@ -255,10 +255,9 @@ Ns 5
 d 0
 
 newmtl m32
-map_Kd tex_soreboku\tamawa.png
+map_Kd /Users/ZJUBank/Downloads/CG_project\ 2/build/Debug/model/tex_soreboku/tamawa.png
 Ka 0.6 0.6 0.6
 Kd 0.8 0.8 0.8
 Ks 0 0 0
 Ns 5
 d 1
-

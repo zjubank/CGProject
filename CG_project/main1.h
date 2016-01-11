@@ -13,7 +13,7 @@
 #include <cstring>
 #include <vector>
 #include "glm.h"
-#include "glm.hpp"
+//#include "glm.hpp"
 //#include <stdlib.h>
 #include <glut/glut.h>
 #include <opengl/gl.h>
@@ -148,10 +148,9 @@ GLfloat fRotate = 0;
 float cc_Rotate = 180;
 GLint list = 0;
 
-const int textureObjectCnt = 9;
-GLuint textureObjects[textureObjectCnt];
-char texFileName[textureObjectCnt][32] = { "texture/floor.bmp", "texture/flower.bmp", "texture/lace.bmp", "texture/line.bmp", "texture/lattice.bmp",
-    "texture/hhh.bmp", "texture/line2.bmp", "texture/sketch.bmp", "texture/leaf.bmp" };
+int textureObjectCnt = 0;
+GLuint textureObjects[400];
+char texFileName[400][50];
 
 typedef struct vertex{
     GLfloat pos[3];
