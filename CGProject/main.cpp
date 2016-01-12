@@ -1,6 +1,74 @@
 //project
 #include "main.h"
 
+int notForbidden(double x, double z) {
+    for (int i = 0; i < 5; i++) {
+        if (x <= forbiddenlist[i].x1 && x >= forbiddenlist[i].x2 && z <= forbiddenlist[i].z1 && z >= forbiddenlist[i].z2) {
+            cout << "----" << i << " " << endl;
+            cout << forbiddenlist[i].x1 << " " << forbiddenlist[i].x2 << " " << x << endl;
+            cout << forbiddenlist[i].z1 << " " << forbiddenlist[i].z2 << " " << z << endl;
+            return 0;
+        }
+    }
+    if(x < 8.5 && x > -8.5)
+    {
+        if (x < -17 || x > 17 || z < -18.5 || z > 19) {
+            if (x < -17 && ((z < -5 && z > -9) || (z < 11 && z > 8))) {
+                inroom = false;
+                return 1;
+            }
+            if (x > 17 && ((z < -5 && z > -9) || (z < 11 && z > 8))) {
+                inroom = false;
+                return 1;
+            }
+            if (z < -18.5 && (x < 8.5 && x > -8.5)) {
+                if( !ifdooropen && inroom ) return 0;
+                else
+                {
+                    inroom = false;
+                    return 1;
+                }
+            }
+            if (!inroom)
+                return 1;
+            else
+                return 0;
+        }
+    }
+    else
+    {
+        if (x < -17 || x > 17 || z < -17 || z > 19) {
+            if (x < -17 && ((z < -5 && z > -9) || (z < 11 && z > 8))) {
+                inroom = false;
+                return 1;
+            }
+            if (x > 17 && ((z < -5 && z > -9) || (z < 11 && z > 8))) {
+                inroom = false;
+                return 1;
+            }
+            if (z < -17 && (x < 8.5 && x > -8.5)) {
+                if( !ifdooropen && inroom ) return 0;
+                else
+                {
+                    inroom = false;
+                    return 1;
+                }
+            }
+            if (!inroom)
+                return 1;
+            else
+                return 0;
+        }
+    }
+    if (!inroom) {
+        if ((z < -5 && z > -9) || (z < 11 && z > 8) || (x < 8.5 && x > -8.5)) {
+            inroom = true;
+        } else
+            return 0;
+    }
+    return 1;
+}
+
 void readBMPfileHeader(BMPfileHeader &t){
     myfin.read((char*)&t,sizeof(struct BMPfileHeader));
 }
@@ -15,6 +83,14 @@ void readBMPinfoHeader(BMPinfoHeader &t){
 void readBMPdata(BMP &p){
     p.data=new unsigned char[abs(p.infoHeader.biHeight*((p.infoHeader.biWidth+31)/32*4)*p.infoHeader.biBitCount)];
     myfin.read((char*)p.data,sizeof(unsigned char)*abs(p.infoHeader.biHeight*((p.infoHeader.biWidth+31)/32*4)*p.infoHeader.biBitCount));
+    cout << "ok";
+    char swap;
+    for (int i = 0; i < abs(p.infoHeader.biHeight*((p.infoHeader.biWidth+31)/32*4)*p.infoHeader.biBitCount) / 3; i++) {
+        swap = p.data[i * 3 + 0];
+        p.data[i * 3 + 0] = p.data[i * 3 + 2];
+        p.data[i * 3 + 2] = swap;
+    }
+
 }
 
 void readBMPpaletee(BMP &p){
@@ -56,7 +132,7 @@ void readMTL(char * fileName) {
             st[st.length() - 1] = '\0';
             strcpy(texFileName[textureObjectCnt],st.c_str());
             
-            cout<< texFileName[textureObjectCnt] <<endl;
+//            cout<< texFileName[textureObjectCnt] <<endl;
             textureObjectCnt++;
             
         }
@@ -176,7 +252,7 @@ void initTextureVideo() {
     for (int i = 0; i <= 29; i++) {
         videoLoc[7] = i / 10 + '0';
         videoLoc[8] = i % 10 + '0';
-        cout << videoLoc << endl;
+//        cout << videoLoc << endl;
         loadTexture(i, videoLoc, true);
     }
     loadTexture(30, "black.bmp", true);
@@ -260,8 +336,14 @@ void loadObjectTextures()
         loadTexture(i, texFileName[i], false);
 }
 
-int Pointer_Count = 0;
-int Time = 0;
+void nurbs_Init()
+{
+    pNurb=gluNewNurbsRenderer();
+    gluNurbsProperty(pNurb, GLU_SAMPLING_TOLERANCE, 25.0);
+    //gluNurbsProperty(pNurb, GLU_DISPLAY_MODE, GLU_OUTLINE_POLYGON);
+    gluNurbsProperty(pNurb, GLU_DISPLAY_MODE, (GLfloat)GLU_FILL);
+    
+}
 
 GLvoid draw_pointer(){
     
@@ -307,7 +389,7 @@ GLvoid draw_pointer(){
 
 void Draw_cube1(GLfloat x, int Direc){
     
-    //glTexEnvf(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_BLEND);
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glPushMatrix();
     glScalef(x / 2, x / 2, x / 2);
     int d = Direc;
@@ -383,7 +465,7 @@ GLvoid draw_circle(const GLfloat radius, const GLuint num_vertex)
     
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texture[0]);
-    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+//    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     glBegin(GL_TRIANGLE_FAN);
     
     
@@ -426,12 +508,6 @@ GLvoid draw_circle(const GLfloat radius, const GLuint num_vertex)
     
 }
 
-
-
-
-
-
-
 void Draw_Door(float w, float h, float d){
     glPushMatrix();
     glTranslatef(0, 0, 3);
@@ -440,7 +516,7 @@ void Draw_Door(float w, float h, float d){
     glDisable(GL_TEXTURE_2D);
     glActiveTextureARB(GL_TEXTURE0_ARB);
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, texture[0]);
+    glBindTexture(GL_TEXTURE_2D, texture[1]);
     
     glScalef(w, h, d);
     Draw_cube1(1.0, 63);
@@ -493,6 +569,18 @@ void onMouseMove(int x, int y) {
 	   if(h>1.0f) h=1.0f; //视点y坐标作一些限制，不会使视点太奇怪
        else if(h<-1.0f) h=-1.0f;
     eye[1] = h;
+
+    dir[0] = center[0] - eye[0];
+    dir[1] = center[1] - eye[1];
+    dir[2] = center[2] - eye[2];
+    
+    FLlightDir[0] = dir[0];
+    FLlightDir[1] = dir[1];
+    FLlightDir[2] = dir[2];
+    FLposition[0] = eye[0];
+    FLposition[1] = eye[1];
+    FLposition[2] = eye[2];
+    
     oldmx = x, oldmy = y; //把此时的鼠标坐标作为旧值，为下一次计算增量做准备
 }
 
@@ -507,13 +595,22 @@ void key(unsigned char k, int x, int y) {
         case ' ':{ ifmainlight = !ifmainlight; break; } // Main light Switch
         case '0':{ operation = 0; break; } // Main light Pos
         case '1':{ operation = 1; break; } // Main light Color
-        case '2':{ operation = 2; break; } // Bird(kotori) view
-        case '3':{ operation = 3; break; } // First persion view
+            
+        case '2':{ ViewMode = 2; break; } // Bird(kotori) view
+        case '3':{ ViewMode = 3; break; } // First persion view
+            
+        case '4':{ ifflashlight = !ifflashlight; break; } // Flashlight Switch
         case '5':{ ifspotlight = !ifspotlight; break; } // Spotlight Switch
-        case '6':{ ifflashlight = !ifflashlight; break; } // Flashlight Switch
+            
+        case '6':{ ifmodelshow = !ifmodelshow; break; }
+        case '7':{ ifmodelscale = !ifmodelscale; break; }
+        case '8':{ ifmodeltranslate = !ifmodeltranslate; break; }
+        case '9':{ ifmodelrotate = !ifmodelrotate; break; }
+            
+        case ',':{ ifdooropen = !ifdooropen; break; }
         case 27:
         case 'q': {exit(0); break; }
-        case 'd': {
+        case 'l': {
             if (operation == 0){
                 MainLightPos[0] += MainLightPosVar;
             }
@@ -521,24 +618,37 @@ void key(unsigned char k, int x, int y) {
                 if (MainLightColor[0] + MainLightColorVar <= 1.0)
                     MainLightColor[0] += MainLightColorVar;
             }
-            else if (operation == 2){
+            break;
+        }
+        case 'd': {
+            if (ViewMode == 2){
                 FP_eye[0] += FP_eyeVar;
             }
-            else if (operation == 3)
+            else if (ViewMode == 3)
             {
-                if (angle > 0 ){
+                //if (angle > 0 ){
                     dir[0] = center[0] - eye[0];
                     dir[2] = center[2] - eye[2];
                     dir[0] = dir[0] * cos(c * 5) - dir[2] * sin(c * 5);
                     dir[2] = dir[0] * sin(c * 5) + dir[2] * cos(c * 5);
                     center[0] = eye[0] + dir[0];
                     center[2] = eye[2] + dir[2];
-                }
+                
+                FLlightDir[0] = dir[0];
+                FLlightDir[1] = dir[1];
+                FLlightDir[2] = dir[2];
+                FLposition[0] = eye[0];
+                FLposition[1] = eye[1];
+                FLposition[2] = eye[2];
+                cout << "Center:" << center[0] << "," << center[1] << "," << center[2] << endl;
+                cout << "Eye:" << eye[0] << "," << eye[1] << "," << eye[2] << endl;
+                cout << "Dir:" << dir[0] << "," << dir[1] << "," << dir[2] << endl;
+                //}
             }
             
             break;
         }
-        case 'a': {
+        case 'j': {
             if (operation == 0){
                 MainLightPos[0] -= MainLightPosVar;
             }
@@ -546,26 +656,38 @@ void key(unsigned char k, int x, int y) {
                 if (MainLightColor[0] - MainLightColorVar >= 0.0)
                     MainLightColor[0] -= MainLightColorVar;
             }
-            else if (operation == 2){
+            break;
+        }
+        case 'a': {
+            if (ViewMode == 2){
                 FP_eye[0] -= FP_eyeVar;
             }
-            else  if (operation == 3)
+            else  if (ViewMode == 3)
             {
-                if (angle < 180 ){
+                //if (angle < 180 ){
                     dir[0] = center[0] - eye[0];
                     dir[2] = center[2] - eye[2];
                     dir[0] = dir[0] * cos(c*(-5)) - dir[2] * sin(c*(-5));
                     dir[2] = dir[0] * sin(c*(-5)) + dir[2] * cos(c*(-5));
                     center[0] = eye[0] + dir[0];
                     center[2] = eye[2] + dir[2];
-                }
+                    
+                FLlightDir[0] = dir[0];
+                FLlightDir[1] = dir[1];
+                FLlightDir[2] = dir[2];
+                FLposition[0] = eye[0];
+                FLposition[1] = eye[1];
+                FLposition[2] = eye[2];
+                cout << "Center:" << center[0] << "," << center[1] << "," << center[2] << endl;
+                cout << "Eye:" << eye[0] << "," << eye[1] << "," << eye[2] << endl;
+                cout << "Dir:" << dir[0] << "," << dir[1] << "," << dir[2] << endl;
+                //}
             }
             
             break;
         }
-        case 's': {
-            titleStateChanged = false;
-            if (titleStateChanged) break;
+        case 'k':
+        {
             if (operation == 0){
                 MainLightPos[1] -= MainLightPosVar;
             }
@@ -573,11 +695,15 @@ void key(unsigned char k, int x, int y) {
                 if (MainLightColor[1] - MainLightColorVar >= 0.0)
                     MainLightColor[1] -= MainLightColorVar;
             }
-            else if (operation == 2){
+            break;
+        }
+        case 's': {
+            if (ViewMode == 2){
                 FP_eye[1] -= FP_eyeVar;
             }
-            if (operation == 3)
+            if (ViewMode == 3)
             {
+                if (notForbidden(center[0] + eyeDeltaX, center[2] + eyeDeltaZ))
                 {
                     dir[0] = eye[0] - center[0];
                     dir[2] = eye[2] - center[2];
@@ -585,14 +711,19 @@ void key(unsigned char k, int x, int y) {
                     eye[2] += eyeDeltaZ;
                     center[0] = eye[0] - dir[0];
                     center[2] = eye[2] - dir[2];
+                    
+                    FLposition[0] = eye[0];
+                    FLposition[1] = eye[1];
+                    FLposition[2] = eye[2];
                 }
+                 cout << "Center:" << center[0] << "," << center[1] << "," << center[2] << endl;
+                cout << "Eye:" << eye[0] << "," << eye[1] << "," << eye[2] << endl;
+                cout << "Dir:" << dir[0] << "," << dir[1] << "," << dir[2] << endl;
             }
             
             break;
         }
-        case 'w': {
-            titleStateChanged = false;
-            if (titleStateChanged) break;
+        case 'i':{
             if (operation == 0){
                 MainLightPos[1] += MainLightPosVar;
             }
@@ -600,11 +731,15 @@ void key(unsigned char k, int x, int y) {
                 if (MainLightColor[1] + MainLightColorVar <= 1.0)
                     MainLightColor[1] += MainLightColorVar;
             }
-            else if (operation == 2){
+            break;
+        }
+        case 'w': {
+            if (ViewMode == 2){
                 FP_eye[1] += FP_eyeVar;
             }
-            if (operation == 3)
+            if (ViewMode == 3)
             {
+                if (notForbidden(center[0] - eyeDeltaX, center[2] - eyeDeltaZ))
                 {
                     dir[0] = eye[0] - center[0];
                     dir[2] = eye[2] - center[2];
@@ -612,12 +747,32 @@ void key(unsigned char k, int x, int y) {
                     eye[2] -= eyeDeltaZ;
                     center[0] = eye[0] - dir[0];
                     center[2] = eye[2] - dir[2];
+                    
+                    FLposition[0] = eye[0];
+                    FLposition[1] = eye[1];
+                    FLposition[2] = eye[2];
                 }
+                cout << "Center:" << center[0] << "," << center[1] << "," << center[2] << endl;
+                cout << "Eye:" << eye[0] << "," << eye[1] << "," << eye[2] << endl;
+                cout << "Dir:" << dir[0] << "," << dir[1] << "," << dir[2] << endl;
             }
             
             break;
         }
         case 'z': {
+            if (ViewMode== 2){
+                FP_eye[2] -= FP_eyeVar;
+            }
+            break;
+        }
+        case 'x': {
+            if (ViewMode == 2){
+                FP_eye[2] += FP_eyeVar;
+            }
+            break;
+        }
+        case 'c':
+        {
             if (operation == 0){
                 MainLightPos[2] -= MainLightPosVar;
             }
@@ -625,12 +780,10 @@ void key(unsigned char k, int x, int y) {
                 if (MainLightColor[2] - MainLightColorVar >= 0.0)
                     MainLightColor[2] -= MainLightColorVar;
             }
-            else if (operation == 2){
-                FP_eye[2] -= FP_eyeVar;
-            }
             break;
         }
-        case 'c': {
+        case 'v':
+        {
             if (operation == 0){
                 MainLightPos[2] += MainLightPosVar;
             }
@@ -638,16 +791,43 @@ void key(unsigned char k, int x, int y) {
                 if (MainLightColor[2] + MainLightColorVar <= 1.0)
                     MainLightColor[2] += MainLightColorVar;
             }
-            else if (operation == 2){
-                FP_eye[2] += FP_eyeVar;
-            }
             break;
         }
         case 'p':{
             sprintf(snapScreenFileName, "ScreenShot%03d.bmp", ++snapScreenCnt);
             snapScreen(screenWidth, screenHeight, snapScreenFileName);
         }
-            
+        case 't': {
+            SPlightDir[2] -= 0.05;
+            break;
+        }
+        case 'f': {
+            SPlightDir[0] -= 0.05;
+            break;
+        }
+        case 'g': {
+            SPlightDir[2] += 0.05;
+            break;
+        }
+        case 'h': {
+            SPlightDir[0] += 0.05;
+            break;
+        }
+        case 'n': {
+            SPspotangle -= 1.0f;
+            if( SPspotangle < 0.0f ) SPspotangle = 30.0f;
+            break;
+        }
+        case 'm': {
+            SPspotangle += 1.0f;
+            if( SPspotangle > 60.0 ) SPspotangle = 30.0f;
+            break;
+        }
+        case 'b': {
+            light_color_index++;
+            if(light_color_index > 9) light_color_index = 0;
+            break;
+        }
     }
     
     //	if (!titleStateChanged)
@@ -720,6 +900,10 @@ void loadOBJ(){
 void display() {
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    
+    //背景
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_LIGHTING);
     {
@@ -743,38 +927,80 @@ void display() {
         glMatrixMode(GL_MODELVIEW);
     }
     glEnable(GL_DEPTH_TEST);
+    glShadeModel(GL_SMOOTH); 
     glEnable(GL_LIGHTING);
     
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(45.0f, 1, 0.1f, 1000.0f);
+    glMatrixMode(GL_MODELVIEW);
     
-    //Bird View
-    if (operation==3)
+    //First person View
+    if (ViewMode==3)
     {
         gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], 0, 1, 0); //从视点看远点,y轴方向(0,1,0)是上方向
     }
-    //First person View
-    else
+    //Bird View
+    else //if( operation == 2)
     {
         gluLookAt(FP_eye[0], FP_eye[1], FP_eye[2],
                   FP_center[0], FP_center[1], FP_center[2],
                   FP_up[0], FP_up[1], FP_up[2]);
     }
     
-    
+    //大灯
     glEnable(GL_LIGHTING);
     glLightfv(GL_LIGHT0, GL_POSITION, MainLightPos);
     glLightfv(GL_LIGHT0, GL_AMBIENT, MainLightColor);
-    glEnable(GL_LIGHT0);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+    if( ifmainlight )
+    {
+        glEnable(GL_LIGHT0);
+    }
+    else
+    {
+        glDisable(GL_LIGHT0);
+    }
+
+    //手电筒
+    glLightfv(GL_LIGHT1, GL_AMBIENT, FLambient);          //设置环境光成分
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, white);            //设置漫射光成分
+    glLightfv(GL_LIGHT1, GL_SPECULAR, white);           //设置镜面光成分
+    glLightfv(GL_LIGHT1, GL_POSITION, FLposition);        //设置光源位置
+    glLightf(GL_LIGHT1,  GL_SPOT_CUTOFF, FLspotangle);    //裁减角度
+    glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, FLlightDir);  //光源方向
+    glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 30);
+    if( ifflashlight )
+    {
+        glEnable(GL_LIGHT1);
+    }
+    else
+    {
+        glDisable(GL_LIGHT1);
+    }
     
+    //聚光灯
+    glLightfv(GL_LIGHT2, GL_AMBIENT, light_color[light_color_index]);          //设置环境光成分
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, white);            //设置漫射光成分
+    glLightfv(GL_LIGHT2, GL_SPECULAR, white);           //设置镜面光成分
+    glLightfv(GL_LIGHT2, GL_POSITION, SPposition);        //设置光源位置
+    glLightf(GL_LIGHT2,  GL_SPOT_CUTOFF, SPspotangle);    //裁减角度
+    glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, SPlightDir);  //光源方向
+    glLightf(GL_LIGHT2, GL_SPOT_EXPONENT, 30);
+    if( ifspotlight )
+    {
+        glEnable(GL_LIGHT2);
+    }
+    else
+    {
+        glDisable(GL_LIGHT2);
+    }
     
+//    glMatrixMode(GL_MODELVIEW);
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+    glEnable(GL_TEXTURE_2D);
     glPushMatrix();
     glScaled(-1, 1, 1);
     glTranslatef(0, 10, 3);
-    glEnable(GL_TEXTURE_2D);
     //textureObjectCnt=6;
     for (int ii = 0; ii < textureObjectCnt; ii++) {
         glBindTexture(GL_TEXTURE_2D, textureObjects[textureObjectCnt-1-ii]);
@@ -790,9 +1016,9 @@ void display() {
         //system("pause");
         //glPopMatrix();
     }
-    glDisable(GL_TEXTURE_2D);
     glPopMatrix();
-    
+    glDisable(GL_TEXTURE_2D);
+
     
     glPushMatrix();
     glScalef(10, 10, 10);
@@ -801,16 +1027,96 @@ void display() {
     renderVideo();
     glPopMatrix();
     
+    
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texture[0]);
     glPushMatrix();
     glScalef(1, 1, 1);
     glTranslatef(0, 4, -16.5);
     glRotatef(-90, 1, 0, 0);
     Draw_Clock(8,0,0);
     glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
     
-    //    Draw_Door()
+
+    if( !ifdooropen )
+    {
+        //    glBindTexture(GL_TEXTURE_2D, texture[1]);
+        //    glEnable(GL_TEXTURE_2D);
+        //    glBindTexture(GL_TEXTURE_2D, texture[1]);
+        glPushMatrix();
+        //    glScalef(1, 1, 1);
+        glTranslatef(0, 2.5, -20);
+        //    glRotatef(-90, 1, 0, 0);
+        Draw_Door(15.5,1,7);
+        glPopMatrix();
+        //    glDisable(GL_TEXTURE_2D);
+    }
+
+    
     //    Draw_Footstep(<#float w#>, <#float h#>, <#float d#>)
     
+
+    if( ifmodelshow )
+    {
+//            glEnable(GL_TEXTURE_2D);
+//            glBindTexture(GL_TEXTURE_2D, texture[1]);
+        glPushMatrix();
+
+        glMaterialfv(GL_FRONT,GL_AMBIENT,no_mat);
+        glMaterialfv(GL_FRONT,GL_DIFFUSE,mat_diffuse);
+        glMaterialfv(GL_FRONT,GL_SPECULAR,mat_specular);
+        glMaterialfv(GL_FRONT,GL_SHININESS,low_shininess);
+        glMaterialfv(GL_FRONT,GL_EMISSION,no_mat);
+        
+//        glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);    //散射颜色
+//        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);  //镜面反射颜色
+//        glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,50);
+        glRotatef(180, 0, 1, 0);
+        glScaled(0.4, 0.22, 0.3);
+        glTranslatef(0, 2.7, 20);
+        
+        if( ifmodelscale )
+        {
+            glScaled(modelscale, modelscale, modelscale);
+            modelscale -= 0.02;
+            if( modelscale <= 0.2 )
+                modelscale = 2.0;
+        }
+        if( ifmodeltranslate )
+        {
+            glTranslatef(modeltranslate, 0, 0);
+            modeltranslate += 0.2;
+            if( modeltranslate >= 5.0 )
+                modeltranslate = -5.0;
+        }
+        if( ifmodelrotate )
+        {
+            glRotatef(modelrotate, 0, 1, 0);
+            modelrotate += 2;
+            if( modelrotate == 360 )
+                modelrotate = 0;
+        }
+        
+        gluBeginSurface(pNurb);
+        gluNurbsSurface(
+                        pNurb,//指针指向NURBS渲染器
+                        8,
+                        Knots,//u定义域内的结点个数，以及结点序列
+                        8,
+                        Knots,//v定义域内的结点个数，以及结点序列
+                        4*3	,//u方向上控制点的间隔
+                        3,//v方向上控制点的间隔
+                        &ctrlPoints[0][0][0],//控制点数组
+                        4,
+                        4,//u, v 的次数
+                        GL_MAP2_VERTEX_3);//表面的类型
+        //完成定义
+        gluEndSurface(pNurb);
+        glPopMatrix();
+//            glDisable(GL_TEXTURE_2D);
+    }
+
     
     fRotate += 5;
     if (fRotate == 365) fRotate = 0;
@@ -831,6 +1137,8 @@ void texload(int i, char *filename)
 {
     BMP RGBpic;
     readBMP(filename, RGBpic);
+//    if (i == 0)
+//        cout << RGBpic.data[0] << RGBpic.data[1] << RGBpic.data[2]<<endl;
     
     glBindTexture(GL_TEXTURE_2D, texture[i]);
     
@@ -863,12 +1171,11 @@ void gettex()
 
 void init()
 {
-    glGenTextures(3, texture);                                                  //产生纹理标识符
-    texload(0, "Monet.bmp");
-    texload(1, "Crack.bmp");
-    texload(3, "Spot.bmp");
+    glGenTextures(2, texture);                                                  //产生纹理标识符
+    texload(0, "texture/clock.bmp");
+    texload(1, "texture/door.bmp");
     
-    gettex();
+    
     glBindTexture(GL_TEXTURE_2D, texture[2]);                                   //指定当前纹理
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     glTexImage2D(GL_TEXTURE_2D, 0, 3, n_bmp, n_bmp, 0, GL_RGB, GL_UNSIGNED_BYTE, tex);
@@ -877,6 +1184,21 @@ void init()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC0_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    // 启用点平滑处理
+    glEnable(GL_POINT_SMOOTH);
+    // 设置为画质最优的方式
+    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+    // 启用直线平滑处理
+    glEnable(GL_LINE_SMOOTH);
+    // 设置为画质最优的方式
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    // 启用多边形平滑处理
+    glEnable(GL_POLYGON_SMOOTH);
+    // 设置为画质最优的方式
+    glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
 }
 
 
@@ -894,6 +1216,8 @@ int main(int argc, char *argv[]) {
     //    readMTL("model/kotori_sbk_test.mtl");
     loadObjectTextures();
     initGlobalScene();
+    init();
+    nurbs_Init();
     
     glutReshapeFunc(reshape);
     glutDisplayFunc(display);

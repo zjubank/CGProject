@@ -46,7 +46,7 @@ GLfloat screenw = 100;
 GLfloat screenh = 100;
 const int screenWidth = 800;
 const int screenHeight = 800;
-unsigned int textureVideo[100];
+unsigned int textureVideo[30];
 unsigned int texture_black;
 
 GLfloat eye[3] = { 0, 0, 1.5f };
@@ -84,14 +84,12 @@ typedef struct tagBITMAPINFOHEADER
     U32 biClrImportant;
 } BITMAPINFOHEADER;
 
-int operation = 2; //0:lightPos  1:lightColor  2:eye
+int operation = 1; //0:lightPos  1:lightColor
 GLfloat FP_eye[] = { 0, 0, 10 };
 GLfloat FP_center[] = { 0, 0, 0 };
 GLfloat FP_up[] = { 0, 1, 0 };
 GLfloat FP_eyeVar = 1.0f;
 
-GLfloat MainLightPos[] = { 0, 5, 10 }, MainLightPosVar = 1.0f;
-GLfloat MainLightColor[] = { 1, 1, 1 }, MainLightColorVar = 0.1f;
 GLfloat fRotate = 0;
 GLint list = 0;
 
@@ -145,15 +143,14 @@ float max(float x, float y) { return x > y ? x : y; }
 
 GLMmodel *stage2M;
 GLMmodel *kotori2M;
-unsigned int texture[100];
+unsigned int texture[101];
 
 bool ifmainlight = true;
-bool ifspotlight = false;
 bool ifflashlight = false;
+bool ifspotlight = false;
 
-//大灯
+//灯
 GLfloat white[] = { 1.0, 1.0, 1.0, 1.0 };
-GLfloat light_pos[] = {5, 5, 5, 1};
 int light_color_index = 0;
 GLfloat light_color[][10] = { \
     //Kotori White
@@ -176,12 +173,30 @@ GLfloat light_color[][10] = { \
     {1.0f, 0.0f, 0.5f, 1.0f} \
 };
 
+//大灯
+GLfloat MainLightPos[] = { 0, 5, 10 }, MainLightPosVar = 1.0f;
+GLfloat MainLightColor[] = { 1, 1, 1 }, MainLightColorVar = 0.1f;
+//GLfloat light_pos[] = {5, 5, 5, 1};
+
+//手电筒
+GLfloat FLambient[] = {1, 1, 1, 1};
+GLfloat FLposition[] = {eye[0], eye[1], eye[2], 1};
+GLfloat FLspotangle = 30.0f;
+GLfloat FLlightDir[] = {-dir[0], -dir[1], -dir[2]};
+
+
+GLfloat fdir[]={0,0,-1,1};
 
 //聚光灯
-GLfloat ambient[] = {1, 1, 1, 1};
-GLfloat position[] = {center[0], center[1]-3, center[2], 1};
-GLfloat spotangle = 15.0f;
-GLfloat lightDir[] = {-eye[0], -eye[1], -eye[2], 1};
+GLfloat SPambient[] = {1, 1, 1, 1};
+GLfloat SPposition[] = {0, 30, 0, 1};
+GLfloat SPspotangle = 30.0f;
+GLfloat SPlightDir[] = {0, -1, 0, 1};
+
+
+
+int Pointer_Count = 0;
+int Time = 0;
 
 GLint nNumPoints = 4; // 4 X 4
 
@@ -239,9 +254,9 @@ struct BMPinfoHeader{
 };
 
 struct BMPpalette{
-    BYTE	rgbBlue;
-    BYTE	rgbGreen;
     BYTE	rgbRed;
+    BYTE	rgbGreen;
+    BYTE	rgbBlue;
     BYTE	rgbReserved;
 };
 
@@ -257,5 +272,47 @@ struct BMP{
 BYTE tex[64][64][3];
 fstream myfin, myfout;
 
+struct forbidden
+{
+    double x1;
+    double z1;
+    double x2;
+    double z2;
+};
 
+int forbiddencnt = 4;
+forbidden forbiddenlist[10] = {
+    {-12, 7.5, -16, 3.5},
+    {-12, 14, -16, 10.5},
+    {16, 7.5, 12, 3.5},
+    {16, 14, 12, 10.5},
+    {10, 19, -10, 11.5}
+};
+// 舞台门口-17, 0, -16.5。舞台后（不精确）13, 9
+
+float stagemtr[] = {0.5, 0.5, 0.5, 1};
+GLfloat no_mat[]={0.0,0.0,0.0,1.0};
+GLfloat mat_ambient[]={0.7,0.7,0.7,1.0};
+GLfloat mat_ambient_color[]={0.8,0.8,0.2,1.0};
+GLfloat mat_diffuse[]={0.1,0.5,0.8,1.0};
+GLfloat mat_specular[]={1.0,1.0,1.0,1.0};
+GLfloat no_shininess[]={0.0};
+GLfloat low_shininess[]={5.0};
+GLfloat high_shininess[]={100.0};
+GLfloat mat_emission[]={0.3,0.2,0.2,0.0};
+
+bool ifmodelshow = false;
+bool ifmodelscale = false;
+bool ifmodeltranslate = false;
+bool ifmodelrotate = false;
+
+float modelscale = 1.0;
+float modeltranslate = 0.0;
+float modelrotate = 0.0;
+
+bool inroom = true;
+
+int ViewMode = 2;
+
+bool ifdooropen = false;
 #endif /* main_h */

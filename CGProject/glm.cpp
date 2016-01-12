@@ -1147,7 +1147,7 @@ glmVertexNormals(GLMmodel* model, GLfloat angle)
   }
   free(normals);
 
-  printf("glmVertexNormals(): %d normals generated\n", model->numnormals);
+//  printf("glmVertexNormals(): %d normals generated\n", model->numnormals);
 }
 
 

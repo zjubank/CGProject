@@ -19,7 +19,7 @@
 // OpenGL and GLM Headers
 #include <glut/glut.h>
 #include <opengl/gl.h>
-#include "glm.hpp"
+//#include "glm.hpp"
 
 using namespace std;
 
