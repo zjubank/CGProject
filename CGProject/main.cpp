@@ -348,7 +348,7 @@ void nurbs_Init()
 GLvoid draw_pointer(){
     
     Pointer_Count++;
-    if (Pointer_Count == 10){
+    if (Pointer_Count == 50){
         Pointer_Count = 0;
         Time++;
         if (Time == 12 * 3600)
