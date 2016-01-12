@@ -1,6 +1,5 @@
-dependencies: \
-  /Users/ZJUBank/Desktop/SchoolWork/CG/CGProject/CGProject/Mtl.cpp \
-  /Users/ZJUBank/Desktop/SchoolWork/CG/CGProject/CGProject/Mtl.h \
+dependencies: /Users/ZJUBank/Documents/GitHub/CGProject/CGProject/Mtl.cpp \
+  /Users/ZJUBank/Documents/GitHub/CGProject/CGProject/Mtl.h \
   /usr/local/include/glm/glm.hpp \
   /usr/local/include/glm/detail/_fixes.hpp \
   /usr/local/include/glm/fwd.hpp \

@@ -1,6 +1,5 @@
-dependencies: \
-  /Users/ZJUBank/Desktop/SchoolWork/CG/CGProject/CGProject/Obj.cpp \
-  /Users/ZJUBank/Desktop/SchoolWork/CG/CGProject/CGProject/Obj.h \
+dependencies: /Users/ZJUBank/Documents/GitHub/CGProject/CGProject/Obj.cpp \
+  /Users/ZJUBank/Documents/GitHub/CGProject/CGProject/Obj.h \
   /usr/local/include/glm/glm.hpp \
   /usr/local/include/glm/detail/_fixes.hpp \
   /usr/local/include/glm/fwd.hpp \
@@ -75,4 +74,4 @@ dependencies: \
   /usr/local/include/glm/integer.hpp \
   /usr/local/include/glm/detail/func_integer.hpp \
   /usr/local/include/glm/detail/func_integer.inl \
-  /Users/ZJUBank/Desktop/SchoolWork/CG/CGProject/CGProject/Mtl.h
+  /Users/ZJUBank/Documents/GitHub/CGProject/CGProject/Mtl.h

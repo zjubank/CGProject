@@ -1,3 +1,2 @@
-dependencies: \
-  /Users/ZJUBank/Desktop/SchoolWork/CG/CGProject/CGProject/glm.cpp \
-  /Users/ZJUBank/Desktop/SchoolWork/CG/CGProject/CGProject/glm.h
+dependencies: /Users/ZJUBank/Documents/GitHub/CGProject/CGProject/glm.cpp \
+  /Users/ZJUBank/Documents/GitHub/CGProject/CGProject/glm.h
