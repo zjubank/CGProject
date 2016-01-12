@@ -1,0 +1,375 @@
+newmtl m0
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/eyebase.bmp
+
+newmtl m1
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/kao.bmp
+
+newmtl m2
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/tex_black.bmp
+
+newmtl m3
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/kao.bmp
+
+newmtl m4
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/kao.bmp
+
+newmtl m5
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/kao.bmp
+
+newmtl m6
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/matsuge.bmp
+
+newmtl m7
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/kami.bmp
+
+newmtl m8
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/tex_black.bmp
+
+newmtl m9
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/kami.bmp
+
+newmtl m10
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/eye.bmp
+
+newmtl m11
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/kami2.bmp
+
+newmtl m12
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/kurome.bmp
+
+newmtl m13
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/highlight3.bmp
+
+newmtl m14
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/hl3.bmp
+
+newmtl m15
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/highlight.bmp
+
+newmtl m16
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/mikuskinbj.bmp
+
+newmtl m17
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/panty2.bmp
+
+newmtl m18
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/bodymikub.bmp
+
+newmtl m19
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/mabuta.bmp
+
+newmtl m20
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/hl1.bmp
+
+newmtl m21
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/hl2.bmp
+
+newmtl m22
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/hl2.bmp
+
+newmtl m23
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/hl2.bmp
+
+newmtl m24
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/hl2.bmp
+
+newmtl m25
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/hl2.bmp
+
+newmtl m26
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/hl2.bmp
+
+newmtl m27
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/hl2.bmp
+
+newmtl m28
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/tere.bmp
+
+newmtl m29
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 0
+map_Kd tex_mykotori/tere.bmp
+
+newmtl m30
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/tex_black.bmp
+
+newmtl m31
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/a.bmp
+
+newmtl m32
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/b.bmp
+
+newmtl m33
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/d.bmp
+
+newmtl m34
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/c.bmp
+
+newmtl m35
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/f.bmp
+
+newmtl m36
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/e.bmp
+
+newmtl m37
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/c.bmp
+
+newmtl m38
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/i.bmp
+
+newmtl m39
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/tex_black.bmp
+
+newmtl m40
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/tex_black.bmp
+
+newmtl m41
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/mikuskinbj.bmp
+
+newmtl m42
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/tex_black.bmp
+
+newmtl m43
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/kami.bmp
+
+newmtl m44
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/i.bmp
+
+newmtl m45
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 5
+d 1
+map_Kd tex_mykotori/i.bmp
+
+newmtl m46
+Ka 0.6 0.6 0.6
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 46
+d 1
+map_Kd tex_mykotori/e.bmp
