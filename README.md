@@ -26,7 +26,7 @@ Code\CGProject\build\Debug\tex_soreboku中为舞台的纹理文件。
 Code\CGProject\build\Debug\video中为视频转换成的图片文件。
 Code\CGProject\build\Debug也是截图保存的位置。
 
-# 操作说明 # 
+# 操作说明 
 1.	视角变换操作
 按键盘上的数字键2/3可以切换漫游视角/第一人称视角。
 在漫游视角中，按d和a可以增减x方向上的坐标，按s和w可以增减y方向上的坐标，按x和z可以增减z方向上上的坐标。
