@@ -21,8 +21,13 @@
 #include <vector>
 #include <memory.h>
 #include "glm.h"
+#ifndef __linux
 #include <glut/glut.h>
 #include <opengl/gl.h>
+#else
+#include <GL/glut.h>
+#include <GL/gl.h>
+#endif
 #define GL_BGR 0x80E0
 //#define M_PI 3.141592653589793238
 #define GL_LIGHT_MODEL_COLOR_CONTROL_EXT  0x81F8

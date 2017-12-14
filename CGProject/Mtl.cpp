@@ -16,8 +16,13 @@
 // C Headers
 #include <stdio.h>
 // OpenGL and GLM Headers
+#ifndef __linux
 #include <glut/glut.h>
 #include <opengl/gl.h>
+#else
+#include <GL/glut.h>
+#include <GL/gl.h>
+#endif
 //#include "glm.hpp"
 
 using namespace std;
